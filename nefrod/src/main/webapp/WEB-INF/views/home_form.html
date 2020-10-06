@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home form</title>
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/discount}" method="post">
+        <label th:for="product">Product type</label>
+        <input type="text" th:name="product"/>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,16 +1,10 @@
 package rules
 
-import ru.isu.nefrod.model.Product
+import ru.isu.nefrod.model.Transaction
 
-rule "Offer for Diamond"
+rule "its transaction"
 	when
-		productObject: Product(type=="diamond")
+		transaction: Transaction()
 	then
-		productObject.setDiscount(15);
-	end
-rule "Offer for Gold"
-	when
-		productObject: Product(type=="gold")
-	then
-		productObject.setDiscount(25);
+		System.out.println("its transaction!!!");
 	end

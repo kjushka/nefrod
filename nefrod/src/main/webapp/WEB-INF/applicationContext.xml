@@ -19,6 +19,7 @@
     <bean class="ru.isu.nefrod.service.GlobalHandlerExceptionResolver" id="countryHandlerExceptionResolver"/>
     <bean class="ru.isu.nefrod.validator.UserValidator" id="userValidator"/>
     <bean class="ru.isu.nefrod.validator.ExerciseValidator" id="exerciseValidator"/-->
+    <bean class="ru.isu.nefrod.drools.AntiFraudService" id="antiFraudService"/>
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />

@@ -26,10 +26,11 @@ public class AntiFraudService {
         kieSession.insert(t);
         kieSession.fireAllRules();
         kieSession.dispose();
+        saveTransaction(t);
         return t;
     }
 
-    public void saveTransaction(Transaction t) {
+    private void saveTransaction(Transaction t) {
         transactionRepository.save(t);
     }
 }

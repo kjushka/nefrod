@@ -1,35 +1,26 @@
 package ru.isu.nefrod.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Reference;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Setter
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@Entity
+@Document(collection = "Card")
 public class Card {
     @Id
-    @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String id;
+    @Indexed(unique = true)
     private String number;
     //private String pass;
     //private LocalDate endDate;
     //private String cvv2;
     //private String account;
     private Double balance;
-    @ManyToOne(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
-    )
-    @JoinColumn(
-            foreignKey = @ForeignKey(name = "user_id")
-    )
     private User owner;
 }

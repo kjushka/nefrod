@@ -4,25 +4,22 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Document(collection = "User")
 public class User {
     @Id
-    @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String id;
-    private String firstName;
+    /*private String firstName;
     private String lastName;
     private String city;
     private String country;
-    private String email;
+    private String email;*/
+    private String login;
+    private String pass;
 }

@@ -6,11 +6,14 @@ import org.kie.api.runtime.KieSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.isu.nefrod.model.Transaction;
+import ru.isu.nefrod.repository.TransactionRepository;
 
 @Service
 public class AntiFraudService {
 
     KieContainer kieContainer;
+    @Autowired
+    TransactionRepository transactionRepository;
 
     @Autowired
     public AntiFraudService() {
@@ -24,5 +27,9 @@ public class AntiFraudService {
         kieSession.fireAllRules();
         kieSession.dispose();
         return t;
+    }
+
+    public void saveTransaction(Transaction t) {
+        transactionRepository.save(t);
     }
 }

@@ -20,10 +20,8 @@ public class Transaction {
     private String id;
     private String senderAccount;
     private String receiverAccount;
-    private String countryFrom;
-    private String cityFrom;
+    private String cityFromId;
     private Integer failuresNumber;
-    private String senderIP;
     private LocalDate transactionDate;
     private LocalTime transactionalTime;
     private String status;
